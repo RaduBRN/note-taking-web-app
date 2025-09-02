@@ -7,7 +7,6 @@ import IconPlus from "@/components/icons/IconPlus";
 import ButtonAtomComponent from "@/components/atoms/Button";
 import BottomButton from "@/components/atoms/BottomButton";
 import NotesItemMoleculeComponent from "@/components/molecules/NotesItem";
-import PageTitle from "@/components/atoms/PageTitle";
 import notes from "@/static/notes";
 
 const TagPage = ({ params }) => {
@@ -19,15 +18,25 @@ const TagPage = ({ params }) => {
     )
   );
 
-  const [width, setWidth] = useState(window?.innerWidth);
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window?.innerWidth : null
+  );
   const router = useRouter();
 
   useEffect(() => {
     function resize() {
-      setWidth(window.innerWidth);
+      if (typeof window !== "undefined") {
+        setWidth(window?.innerWidth);
+      }
     }
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    if (typeof window !== "undefined") {
+      window?.addEventListener("resize", resize);
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        window?.removeEventListener("resize", resize);
+      }
+    };
   }, []);
 
   useEffect(() => {

@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import IconPlus from "@/components/icons/IconPlus";
 import ButtonAtomComponent from "@/components/atoms/Button";
 import BottomButton from "@/components/atoms/BottomButton";
@@ -19,7 +21,9 @@ const TagsPage = () => {
           />
         </div>
         <div className="mt-5 mb-3 text-2xl font-bold dark:text-white">
-          <PageTitle />
+          <Suspense>
+            <PageTitle />
+          </Suspense>
         </div>
         <div className="flex flex-col gap-3 mb-20 lg:mb-5 divide-y">
           {tags?.tags?.length

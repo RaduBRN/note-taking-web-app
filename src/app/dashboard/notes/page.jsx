@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 
 import IconPlus from "@/components/icons/IconPlus";
 import ButtonAtomComponent from "@/components/atoms/Button";
@@ -15,10 +16,20 @@ export default function NotesPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        setWidth(window?.innerWidth);
+      }
+    };
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      window?.addEventListener("resize", handleResize);
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        window?.removeEventListener("resize", handleResize);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -39,7 +50,9 @@ export default function NotesPage() {
           />
         </div>
         <div className="mt-5 mb-3 text-2xl font-bold dark:text-white">
-          <PageTitle />
+          <Suspense>
+            <PageTitle />
+          </Suspense>
         </div>
         <div className="flex flex-col gap-3 mb-20 lg:mb-5">
           {notes?.notes?.length

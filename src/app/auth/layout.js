@@ -10,10 +10,12 @@ const AuthLayout = ({ children }) => {
   const theme = useAtomValue(themeState);
   const getTheme = () => {
     if (theme === "system") {
-      if (window?.matchMedia("(prefers-color-scheme: dark)")?.matches) {
-        return "dark";
-      } else {
-        return "light";
+      if (typeof window !== "undefined") {
+        if (window?.matchMedia("(prefers-color-scheme: dark)")?.matches) {
+          return "dark";
+        } else {
+          return "light";
+        }
       }
     }
     if (theme === "dark") return "dark";

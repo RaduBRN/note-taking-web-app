@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import MenuItemMoleculeComponent from "@/components/molecules/TagItem";
@@ -14,14 +15,24 @@ import PageTitle from "@/components/atoms/PageTitle";
 const SettingsLayout = ({ children }) => {
   const router = useRouter();
   const path = usePathname();
-  const [width, setWidth] = useState(window?.innerWidth);
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window?.innerWidth : null
+  );
 
   useEffect(() => {
     function resize() {
-      setWidth(window.innerWidth);
+      if (typeof window !== "undefined") {
+        setWidth(window?.innerWidth);
+      }
     }
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    if (typeof window !== "undefined") {
+      window?.addEventListener("resize", resize);
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        window?.removeEventListener("resize", resize);
+      }
+    };
   }, []);
 
   const logout = () => {
@@ -41,7 +52,9 @@ const SettingsLayout = ({ children }) => {
         className="w-full aria-hidden:hidden rounded-tl-2xl rounded-tr-2xl lg:rounded-none bg-white dark:bg-neutral-950 lg:max-w-[272px] px-5 overflow-y-auto hide-scrollbar"
       >
         <div className="block lg:hidden mt-5 mb-3 text-2xl font-bold dark:text-white">
-          <PageTitle />
+          <Suspense>
+            <PageTitle />
+          </Suspense>
         </div>
         <div className="flex flex-col gap-3 mt-5 mb-20 lg:my-5">
           <MenuItemMoleculeComponent

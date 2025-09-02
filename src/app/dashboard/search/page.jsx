@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import NotesItemMoleculeComponent from "@/components/molecules/NotesItem";
 import SearchMoleculeComponent from "@/components/molecules/Search";
 import PageTitle from "@/components/atoms/PageTitle";
@@ -40,7 +42,9 @@ const NotesPage = (params) => {
     <div className="flex divide-x h-[calc(100vh-65px)] bg-neutral-50 dark:bg-neutral-950">
       <div className="w-full rounded-tl-2xl rounded-tr-2xl lg:rounded-none bg-white dark:bg-neutral-950 lg:max-w-[272px] px-5 overflow-y-auto hide-scrollbar">
         <div className="block lg:hidden mt-5 mb-3 text-2xl font-bold dark:text-white">
-          <PageTitle />
+          <Suspense>
+            <PageTitle />
+          </Suspense>
         </div>
         <div className="flex lg:hidden flex-col gap-3 mb-3">
           <SearchMoleculeComponent />

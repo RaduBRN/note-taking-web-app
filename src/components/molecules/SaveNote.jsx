@@ -2,7 +2,7 @@ import ButtonAtomComponent from "../atoms/Button";
 
 const SaveNoteMolecule = () => {
   return (
-    <div className="flex gap-5 items-center">
+    <div className="flex gap-5 items-center pb-20 lg:pb-0">
       <ButtonAtomComponent
         label="Save Note"
         className="text-white !justify-start gap-2 text-sm"

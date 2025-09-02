@@ -12,15 +12,25 @@ import notes from "@/static/notes";
 const NotesPage = () => {
   const archivedNotes = notes.notes.filter((item) => item.isArchived === true);
 
-  const [width, setWidth] = useState(window?.innerWidth);
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window?.innerWidth : null
+  );
   const router = useRouter();
 
   useEffect(() => {
     function resize() {
-      setWidth(window.innerWidth);
+      if (typeof window !== "undefined") {
+        setWidth(window?.innerWidth);
+      }
     }
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    if (typeof window !== "undefined") {
+      window?.addEventListener("resize", resize);
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        window?.removeEventListener("resize", resize);
+      }
+    };
   }, []);
 
   useEffect(() => {

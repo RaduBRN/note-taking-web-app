@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "react";
 import Image from "next/image";
 import IconSettings from "../icons/IconSettings";
 import ImageLogo from "../images/ImageLogo";
@@ -10,7 +11,9 @@ const NavbarTemplateComponent = () => {
   return (
     <div className="flex justify-between items-center px-8 py-5 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 lg:bg-white">
       <div className="hidden lg:block dark:text-white">
-        <PageTitle />
+        <Suspense>
+          <PageTitle />
+        </Suspense>
       </div>
       <div className="hidden lg:flex items-center gap-6">
         <SearchMoleculeComponent />

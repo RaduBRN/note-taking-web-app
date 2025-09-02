@@ -46,24 +46,28 @@ export default function StateProviders({ children }) {
     if (f) body.classList.add(f);
 
     const applySystem = () => {
-      const isDark =
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-      body.classList.add(isDark ? "dark" : "light");
+      if (typeof window !== "undefined") {
+        const isDark =
+          window?.matchMedia &&
+          window?.matchMedia("(prefers-color-scheme: dark)").matches;
+        body.classList.add(isDark ? "dark" : "light");
+      }
     };
 
     if (theme === "dark") body.classList.add("dark");
     else if (theme === "light") body.classList.add("light");
     else applySystem();
 
-    if (theme === "system" && window.matchMedia) {
-      const mql = window.matchMedia("(prefers-color-scheme: dark)");
-      const handler = () => {
-        body.classList.remove("light", "dark");
-        body.classList.add(mql.matches ? "dark" : "light");
-      };
-      mql.addEventListener?.("change", handler);
-      return () => mql.removeEventListener?.("change", handler);
+    if (typeof window !== "undefined") {
+      if (theme === "system" && window?.matchMedia) {
+        const mql = window?.matchMedia("(prefers-color-scheme: dark)");
+        const handler = () => {
+          body.classList.remove("light", "dark");
+          body.classList.add(mql.matches ? "dark" : "light");
+        };
+        mql.addEventListener?.("change", handler);
+        return () => mql.removeEventListener?.("change", handler);
+      }
     }
   }, [font, theme]);
 
