@@ -25,7 +25,7 @@ const NotesPage = () => {
     if (width > 1024) {
       router.push(`/dashboard/notes/${notes?.notes[0].id}`);
     }
-  }, [width]);
+  }, [width, router]);
 
   return (
     <div className="flex divide-x dark:divide-neutral-800 h-[calc(100vh-65px)] bg-neutral-50 dark:bg-neutral-950">

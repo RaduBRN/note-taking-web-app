@@ -46,9 +46,9 @@ const NotesPage = (params) => {
           <SearchMoleculeComponent />
           {query ? (
             <div className="text-sm text-neutral-700 dark:text-neutral-300">
-              All notes matching "
-              <span className="dark:text-white">{query}</span>" are displayed
-              below.
+              All notes matching &quot;
+              <span className="dark:text-white">{query}</span>&quot; are
+              displayed below.
             </div>
           ) : null}
         </div>

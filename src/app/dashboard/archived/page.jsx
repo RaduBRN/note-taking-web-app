@@ -7,7 +7,6 @@ import IconPlus from "@/components/icons/IconPlus";
 import ButtonAtomComponent from "@/components/atoms/Button";
 import BottomButton from "@/components/atoms/BottomButton";
 import NotesItemMoleculeComponent from "@/components/molecules/NotesItem";
-import PageTitle from "@/components/atoms/PageTitle";
 import notes from "@/static/notes";
 
 const NotesPage = () => {
@@ -28,7 +27,7 @@ const NotesPage = () => {
     if (width > 1024) {
       router.push(`/dashboard/archived/${archivedNotes[0]?.id}`);
     }
-  }, [width]);
+  }, [width, archivedNotes, router]);
 
   return (
     <div className="flex divide-x dark:divide-neutral-800 h-[calc(100vh-65px)] bg-neutral-50 dark:bg-neutral-950">

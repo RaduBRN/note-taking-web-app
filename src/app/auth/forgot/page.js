@@ -7,7 +7,7 @@ const ForgotPassword = () => {
           Forgotten your password?
         </div>
         <div className="text-neutral-600 dark:text-neutral-300 text-[14px] text-center md:text-start">
-          Enter your email below, and we'll send you a link to reset it.
+          Enter your email below, and we&apos;ll send you a link to reset it.
         </div>
       </div>
       <div className="flex flex-col gap-2">
