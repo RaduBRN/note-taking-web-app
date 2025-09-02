@@ -28,8 +28,8 @@ Users should be able to:
 
 ## Links
 
-- Solution URL: [frontendmentor.io](https://your-solution-url.com)
-- Live Site URL: [netlify](https://your-live-site-url.com)
+- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/responsive-note-taking-web-app-using-next-jotai-and-tailwind-aPKbp79rBB)
+- Live Site URL: [netlify](https://resonant-taiyaki-21d552.netlify.app/dashboard/)
 
 ## Built with
 
