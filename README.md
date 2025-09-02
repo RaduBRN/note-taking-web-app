@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Note-taking web app solution
 
-## Getting Started
+This is a solution to the [Note-taking web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/note-taking-web-app-773r7bUfOG). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-First, run the development server:
+## The challenge
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Users should be able to:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Create, read, update, and delete notes
+- Archive notes
+- View all their notes
+- View all archived notes
+- View notes with specific tags
+- Search notes by title, tag, and content
+- Select their color theme
+- Select their font theme
+- Receive validation messages if required form fields aren't completed
+- Navigate the whole app and perform all actions using only their keyboard
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- **Bonus**: Save details to a database (build the project as a full-stack app)
+- **Bonus**: Create an account, log in, change password (add user authentication to the full-stack app)
+- **Bonus**: Reset their password (add password reset to the full-stack app)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Screenshot
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![](./project-screenshot.png)
 
-## Learn More
+## Links
 
-To learn more about Next.js, take a look at the following resources:
+- Solution URL: [frontendmentor.io](https://your-solution-url.com)
+- Live Site URL: [netlify](https://your-live-site-url.com)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Built with
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
+- [Jotai](https://jotai.org/) - State management library
+- [Moment](https://momentjs.com/) - Date utility library
+- [Yup](https://github.com/jquense/yup) - Schema validation library
 
-## Deploy on Vercel
+## Project Status
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is approximately 90% complete. The main functionality is fully implemented and working as intended. While I'm not actively working on it at the moment, I may return to it in the future to complete the remaining small enhancements and polish.

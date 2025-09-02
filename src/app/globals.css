@@ -20,8 +20,31 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+ul {
+  @apply list-disc mb-5;
+}
+
+ol {
+  @apply list-decimal mt-5;
+}
+
+li {
+  @apply ml-5;
+}
+
+ul li {
+  @apply ml-10;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
