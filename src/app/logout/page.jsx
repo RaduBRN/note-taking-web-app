@@ -3,14 +3,12 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const Logout = () => {
+export default function Logout() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push(`/auth`);
-  }, []);
+    router.replace("/auth");
+  }, [router]);
 
   return null;
-};
-
-export default Logout;
+}

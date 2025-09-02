@@ -1,10 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-("");
-
-const Logout = () => {
-  useEffect(() => {}, []);
-
+export default function LoginPage() {
   return null;
-};
+}

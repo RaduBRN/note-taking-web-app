@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -9,21 +10,20 @@ import NotesItemMoleculeComponent from "@/components/molecules/NotesItem";
 import PageTitle from "@/components/atoms/PageTitle";
 import notes from "@/static/notes";
 
-const NotesPage = () => {
-  const [width, setWidth] = useState(window?.innerWidth);
+export default function NotesPage() {
+  const [width, setWidth] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
-    function resize() {
-      setWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    const handleResize = () => setWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    if (width > 1024) {
-      router.push(`/dashboard/notes/${notes?.notes[0].id}`);
+    if (width > 1024 && notes?.notes?.length) {
+      router.replace(`/dashboard/notes/${notes.notes[0].id}`);
     }
   }, [width, router]);
 
@@ -43,7 +43,7 @@ const NotesPage = () => {
         </div>
         <div className="flex flex-col gap-3 mb-20 lg:mb-5">
           {notes?.notes?.length
-            ? notes?.notes?.map((item) => (
+            ? notes.notes.map((item) => (
                 <NotesItemMoleculeComponent key={item.id} item={item} />
               ))
             : null}
@@ -53,6 +53,4 @@ const NotesPage = () => {
       <BottomButton />
     </div>
   );
-};
-
-export default NotesPage;
+}

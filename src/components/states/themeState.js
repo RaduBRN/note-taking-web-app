@@ -1,3 +1,7 @@
-import { atomWithStorage } from "jotai/utils";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
-export const themeState = atomWithStorage("themeState", "system");
+const storage = createJSONStorage(() =>
+  typeof window === "undefined" ? undefined : localStorage
+);
+
+export const themeState = atomWithStorage("themeState", "system", storage);

@@ -1,3 +1,7 @@
-import { atomWithStorage } from "jotai/utils";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
-export const fontState = atomWithStorage("fontState", "inter");
+const storage = createJSONStorage(() =>
+  typeof window === "undefined" ? undefined : localStorage
+);
+
+export const fontState = atomWithStorage("fontState", "inter", storage);

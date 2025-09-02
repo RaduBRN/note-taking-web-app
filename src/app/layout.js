@@ -10,16 +10,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <Providers>
-        <StateProviders>
-          <div
-            className={`text-neutral-950 antialiased bg-neutral-100 dark:bg-neutral-700`}
-          >
-            {children}
-          </div>
-        </StateProviders>
-      </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <Providers>
+          <StateProviders>
+            <div className="text-neutral-950 antialiased bg-neutral-100 dark:bg-neutral-700">
+              {children}
+            </div>
+          </StateProviders>
+        </Providers>
+      </body>
     </html>
   );
 }
