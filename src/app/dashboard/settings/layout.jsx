@@ -49,7 +49,7 @@ const SettingsLayout = ({ children }) => {
     <div className="flex divide-x dark:divide-neutral-800 h-[calc(100vh-65px)] bg-neutral-50 dark:bg-neutral-950">
       <div
         aria-hidden={hideSidebar}
-        className="w-full aria-hidden:hidden rounded-tl-2xl rounded-tr-2xl lg:rounded-none bg-white dark:bg-neutral-950 lg:max-w-[272px] px-5 overflow-y-auto hide-scrollbar"
+        className={`w-full aria-hidden:hidden rounded-tl-2xl rounded-tr-2xl lg:rounded-none bg-white dark:bg-neutral-950 lg:max-w-[272px] px-5 overflow-y-auto hide-scrollbar`}
       >
         <div className="block lg:hidden mt-5 mb-3 text-2xl font-bold dark:text-white">
           <Suspense>

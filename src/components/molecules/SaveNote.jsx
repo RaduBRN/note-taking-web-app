@@ -9,7 +9,7 @@ const SaveNoteMolecule = () => {
       />
       <ButtonAtomComponent
         label="Cancel"
-        className="bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-white !justify-start gap-2 text-sm"
+        className="bg-neutral-100 hover:bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-800 text-neutral-600 dark:text-white !justify-start gap-2 text-sm"
       />
     </div>
   );

@@ -4,6 +4,7 @@ import IconTag from "@/components/icons/IconTag";
 import IconClock from "@/components/icons/IconClock";
 import IconArchive from "@/components/icons/IconArchive";
 import IconPlus from "@/components/icons/IconPlus";
+import SaveNoteMolecule from "@/components/molecules/SaveNote";
 import ButtonAtomComponent from "@/components/atoms/Button";
 import NotesItemMoleculeComponent from "@/components/molecules/NotesItem";
 import NoteInput from "@/components/atoms/NoteInput";
@@ -23,9 +24,9 @@ const DynamicNotePageCreate = ({ params }) => {
   const tags = data?.tags.join(", ");
 
   return (
-    <div className="flex divide-x min-h-[calc(100vh-65px)] bg-neutral-50">
-      <div className="w-full hidden rounded-tl-2xl rounded-tr-2xl lg:rounded-none bg-white lg:block max-w-[272px] px-5 overflow-y-auto hide-scrollbar">
-        <div className="sticky top-0 left-0 right-0 pt-10 py-5">
+    <div className="flex divide-x dark:divide-neutral-800 min-h-[calc(100vh-65px)] bg-neutral-50 dark:bg-neutral-950">
+      <div className="w-full hidden rounded-tl-2xl rounded-tr-2xl lg:rounded-none bg-white dark:bg-neutral-950 lg:block max-w-[272px] px-5 overflow-y-auto hide-scrollbar">
+        <div className="sticky top-0 left-0 right-0 pt-10 py-5 bg-white dark:bg-neutral-950">
           <ButtonAtomComponent
             icon={<IconPlus className="w-4 h-4" />}
             label="Create New Note"
@@ -41,8 +42,8 @@ const DynamicNotePageCreate = ({ params }) => {
             : null}
         </div>
       </div>
-      <div className="grow block h-full bg-white rounded-tl-2xl rounded-tr-2xl lg:rounded-none">
-        <div className="flex divide-x gap-5 h-full">
+      <div className="grow block h-full bg-white dark:bg-neutral-950 rounded-tl-2xl rounded-tr-2xl lg:rounded-none">
+        <div className="flex divide-x dark:divide-neutral-800 gap-5 h-full">
           <div className="flex flex-col gap-5 grow px-5 py-5 lg:py-10">
             <div className="flex lg:hidden justify-between items-center gap-5 border-b pb-5 dark:border-neutral-800">
               <Link
@@ -61,12 +62,12 @@ const DynamicNotePageCreate = ({ params }) => {
             </div>
             <div>
               <NoteInput
-                className="text-[24px] font-bold leading-[120%] w-full focus:outline-0 placeholder:text-neutral-950"
+                className="text-[24px] font-bold leading-[120%] w-full focus:outline-0 placeholder:text-neutral-950 dark:text-white placeholder:dark:text-white dark:bg-neutral-950"
                 placeholder="Enter a title..."
               />
             </div>
             <div className="flex flex-col gap-3">
-              <div className="flex items-center">
+              <div className="flex items-center dark:text-neutral-300">
                 <div className="flex items-center gap-2 min-w-[150px]">
                   <div>
                     <IconTag className="w-4 h-4" />
@@ -75,12 +76,12 @@ const DynamicNotePageCreate = ({ params }) => {
                 </div>
                 <div>
                   <NoteInput
-                    className="w-full focus:outline-0"
+                    className="w-full focus:outline-0 dark:text-white dark:bg-neutral-950"
                     placeholder="Add tags separated by commas (e.g Work, Planning)"
                   />
                 </div>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center dark:text-neutral-300">
                 <div className="flex items-center gap-2 min-w-[150px]">
                   <div>
                     <IconClock className="w-4 h-4" />
@@ -90,14 +91,15 @@ const DynamicNotePageCreate = ({ params }) => {
                 <div className="text-neutral-400">Not yet saved</div>
               </div>
             </div>
-            <hr />
+            <div className="w-full h-[1px] bg-neutral-600 dark:bg-neutral-800" />
             <div>
               <textarea
-                className="w-full focus:outline-0"
+                className="w-full focus:outline-0 dark:bg-neutral-950 dark:text-neutral-100"
                 rows="20"
                 placeholder="Start typing your note here..."
               />
             </div>
+            <SaveNoteMolecule />
           </div>
           <div className="hidden lg:block min-w-[272px] px-5 py-10">
             <div className="flex flex-col gap-3"></div>
